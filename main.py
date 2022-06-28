@@ -5,19 +5,9 @@ import random
 import string
 import time
 import os
-import sys
-script_version = '4.0.0'
-window_title   = f"WARP-PLUS-CLOUDFLARE By Navaneeth K M (version {script_version})"
+
 os.system('title ' + window_title if os.name == 'nt' else 'PS1="\[\e]0;' + window_title + '\a\]"; echo $PS1')
 os.system('cls' if os.name == 'nt' else 'clear')
-print ("[+] ABOUT SCRIPT:")
-print ("[-] With this script, you can getting unlimited GB on Warp+.")
-print (f"[-] Version: {script_version}")
-print ("--------")
-print ("[+] THIS SCRIPT CODDED BY Navaneeth K M") 
-print ("[-] SITE: https://navaneethkm.gq") 
-print ("[-] TELEGRAM: navaneethkm004")
-print ("--------")
 referrer  = "554dae50-5275-4378-80a1-113d952a4d29"
 def progressBar():
 	animation     = ["[□□□□□□□□□□]","[■□□□□□□□□□]","[■■□□□□□□□□]", "[■■■□□□□□□□]", "[■■■■□□□□□□]", "[■■■■■□□□□□]", "[■■■■■■□□□□]", "[■■■■■■■□□□]", "[■■■■■■■■□□]", "[■■■■■■■■■□]"]
