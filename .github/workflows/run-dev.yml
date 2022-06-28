@@ -1,0 +1,55 @@
+name: worker
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+env:
+  GitHubMail: "sussie@itsadarsh.tech"
+  GitHubName: "sussie-kh"
+
+jobs:
+  akodevelop:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@main
+
+      - uses: styfle/cancel-workflow-action@0.9.0
+        name: "Cancel duplicates"
+        with:
+            all_but_latest: true
+            access_token: ${{ github.token }}
+      - name: Set Git Configs & Secrets
+        run: |
+          git config --global user.email ${GitHubMail}
+          git config --global user.name ${GitHubName}
+          git config --global credential.helper store
+          echo "https://${GitHubName}:${{ secrets.GH_TOK }}@github.com" > ~/.git-credentials
+      - name: Setup Py3
+        uses: actions/setup-python@v2.2.2
+        with:
+          python-version: '3.9.12'
+      - name: Gather repo
+        run: |
+          git clone "https://github.com/${GITHUB_REPOSITORY}" bot || exit 1
+      - name: Install deps
+        run: |
+          cd bot
+          pip3 install wheel
+          pip3 install -r requirements.txt
+      - name: Build wheels
+        timeout-minutes: 330
+        continue-on-error: true
+        run: |
+          cd bot
+          python3 main.py
+      - name: Quality Control
+        run: |
+          git clone https://github.com/${GITHUB_REPOSITORY} lupo
+          cd lupo || exit 1
+          echo $(( RANDOM - ( RANDOM % RANDOM ) )) > buildid.txt
+          git add buildid.txt
+          git commit -m "Building [$(date -u +%D-%T%P)]"
+          git push -q "https://${{ secrets.GH_TOK }}@github.com/${GITHUB_REPOSITORY}" -f  HEAD:main || exit 1
