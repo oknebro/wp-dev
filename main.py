@@ -5,6 +5,7 @@ import random
 import string
 import time
 import os
+import sys
 window_title = "Ti"
 os.system('title ' + window_title if os.name == 'nt' else 'PS1="\[\e]0;' + window_title + '\a\]"; echo $PS1')
 os.system('cls' if os.name == 'nt' else 'clear')
