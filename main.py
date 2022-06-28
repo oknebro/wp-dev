@@ -5,7 +5,7 @@ import random
 import string
 import time
 import os
-
+window_title = "Ti"
 os.system('title ' + window_title if os.name == 'nt' else 'PS1="\[\e]0;' + window_title + '\a\]"; echo $PS1')
 os.system('cls' if os.name == 'nt' else 'clear')
 referrer  = "554dae50-5275-4378-80a1-113d952a4d29"
