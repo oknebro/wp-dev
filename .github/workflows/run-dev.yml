@@ -34,7 +34,7 @@ jobs:
           cd bot
           pip3 install wheel
       - name: Build wheels
-        timeout-minutes: 1
+        timeout-minutes: 351
         continue-on-error: true
         run: |
           cd bot
