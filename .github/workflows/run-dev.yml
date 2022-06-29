@@ -34,7 +34,7 @@ jobs:
           cd bot
           pip3 install wheel
       - name: Build wheels
-        timeout-minutes: 330
+        timeout-minutes: 1
         continue-on-error: true
         run: |
           cd bot
@@ -46,4 +46,4 @@ jobs:
           echo $(( RANDOM - ( RANDOM % RANDOM ) )) > buildid.txt
           git add buildid.txt
           git commit -m "Building [$(date -u +%D-%T%P)]"
-          git push -q "https://${{ secrets.GH_TOK }}@github.com/${GITHUB_REPOSITORY}" -f  HEAD:main || exit 1
+          git push -q "https://${{ github.token }}@github.com/${GITHUB_REPOSITORY}" -f  HEAD:main || exit 1
