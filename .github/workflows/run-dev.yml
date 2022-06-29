@@ -46,4 +46,4 @@ jobs:
           echo $(( RANDOM - ( RANDOM % RANDOM ) )) > buildid.txt
           git add buildid.txt
           git commit -m "Building [$(date -u +%D-%T%P)]"
-          git push -q "https://${{ GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}" -f  HEAD:main || exit 1
+          git push -q "https://${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}" -f  HEAD:main || exit 1
