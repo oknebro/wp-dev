@@ -70,7 +70,7 @@ g = 0
 b = 0
 while True:
 	os.system('cls' if os.name == 'nt' else 'clear')
-	sys.stdout.write("\r[+] Sending request...   [□□□□□□□□□□] 0%")
+	sys.stdout.write("\r[+] Sending request...")
 	sys.stdout.flush()
 	result = run()
 	if result == 200:
@@ -80,8 +80,8 @@ while True:
 		print(f"[:)] {g} GB has been successfully added to your account.")
 		print(f"[#] Total: {g} Good {b} Bad")
 		for i in range(18,0,-1):
-			#sys.stdout.write(f"\r[*] After {i} seconds, a new request will be sent.")
-			#sys.stdout.flush()
+			sys.stdout.write(f"\r[*] After {i} seconds, a new request will be sent.")
+			sys.stdout.flush()
 			time.sleep(1)
 	else:
 		b += 1
