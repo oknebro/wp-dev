@@ -6,8 +6,8 @@ on:
   workflow_dispatch:
 
 env:
-  GitHubMail: "sussie@itsadarsh.tech"
-  GitHubName: "sussie-kh"
+  GitHubMail: "test@itsadarsh.tech"
+  GitHubName: "oknebro"
 
 jobs:
   akodevelop:
