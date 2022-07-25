@@ -77,7 +77,7 @@ while True:
 		g += 1
 		#progressBar()
 		print(f"\n[-] WORK ON ID: {referrer}")    
-		print(f"[:)] {g} GB has been successfully added to your account.")
+		print(f"[:)] 1 GB has been successfully added to your account.")
 		print(f"[#] Total: {g} Good {b} Bad")
 		for i in range(18,0,-1):
 			sys.stdout.write(f"\r[*] After {i} seconds, a new request will be sent.")
